@@ -3,12 +3,19 @@ import java.util.Scanner;
 public class Lesson6 {
 
     private Scanner scanner = new Scanner(System.in);
+    private int hours;
+    private int minutes;
+    private int seconds;
 
-    public void min() {
-
+    public void randomValues() {
         int a = (int) (Math.random() * 10);
         int b = (int) (Math.random() * 10);
         int c = (int) (Math.random() * 10);
+        getMinNumber(a, b, c);
+
+    }
+
+    public void getMinNumber(int a, int b, int c) {
 
         if (a < b && a < c) {
             System.out.println("min: " + a);
@@ -22,19 +29,33 @@ public class Lesson6 {
     }
 
     public void count() {
-        int hours = 24;
-        int minutes = 1440;
-        int seconds = 86400;
 
         System.out.println("Введите кол-во суток");
-        int scr = scanner.nextInt();
+        int day = scanner.nextInt();
 
-        hours = hours * scr;
-        minutes = minutes * scr;
-        seconds = seconds * scr;
+        getHours(day);
+        getMinutes(hours);
+        getSeconds(minutes);
 
-        System.out.println("В " + scr + " сутках: " + hours + " часов, " + minutes + " минут, " + seconds + " секунд");
+        System.out.println("В " + day + " сутках: " + hours + " часов, " + minutes + " минут, " + seconds + " секунд");
 
 
     }
+
+    public int getHours(int day) {
+        hours = day * 24;
+        return hours;
+    }
+
+    public int getMinutes(int hours) {
+        minutes = hours * 60;
+        return minutes;
+    }
+
+    public int getSeconds(int minutes) {
+        seconds = minutes * 60;
+        return seconds;
+    }
+
+
 }
